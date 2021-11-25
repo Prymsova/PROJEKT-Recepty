@@ -33,3 +33,83 @@ Nastav je receptům jako obrázky na pozadí (tj. nepřidávej je jako <img> do 
 Na rozložení prvků NEPOUŽÍVEJ absolutní pozicování, ale pouze flexboxy.
 Flexboxy mohou být vnořené do sebe, klidně několikrát.
 */
+
+/*font-family: 'Raleway', sans-serif;
+font-family: 'Source Sans Pro', sans-serif;*/
+
+body {
+	color: white;
+}
+
+/*co jsem se nového naučila z pokročilejších selektorů: vybrat sourozence .recept následujícího za .recept, v mém případě jich tam je pět, takže se vyberou ty čtyři vyjma prvního*/
+.recept+.recept {border-top: 1px solid white;}
+
+.hlavní h1,
+.recept h2 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 800;
+	margin: 0;
+}
+
+.hlavní h1 {font-size: 28px;}
+.recept h2 {font-size: 18px;}
+
+.hlavní h3,
+.recept h3 {
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	margin: 0;
+}
+
+.záhlaví {
+	display: flex;
+	justify-content: space-between;
+}
+
+.recept {
+	padding: 10px;
+	background-size: cover;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.hlavní {background-image: url(images/salat.jpg);}
+.první {background-image: url(images/chlebicek.jpg);}
+.druhý {background-image: url(images/cizrna.jpg);}
+.třetí {background-image: url(images/tacos.jpg);}
+.čtvrtý {background-image: url(images/burger.jpg);}
+
+.hlavní {min-height: 200px;}
+.malý {min-height: 90px;}
+
+@media screen and (min-width: 480px) {
+	.recept {padding: 20px;}
+
+	.recept+.recept {border-top: none;}
+
+	.hlavní h1 {font-size: 36px;}
+	.recept h2 {font-size: 22px;}
+
+	.hlavní {min-height: 250px;}
+	.malý {min-height: 150px;}
+
+	.hlavička {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1px;
+	}
+
+	.hlavní {flex: 0 0 100%;}
+	.malý {flex: 0 0 calc(50% - 1px);}
+	
+}
+
+@media screen and (min-width: 860px) {
+	.hlavní h1 {font-size: 48px;}
+	.recept h2 {font-size: 28px;}
+
+	.hlavní {min-height: 400px;}
+	.malý {min-height: 200px;}
+}
