@@ -42,7 +42,7 @@ body {
 }
 
 /*co jsem se nového naučila z pokročilejších selektorů: vybrat sourozence .recept následujícího za .recept, v mém případě jich tam je pět, takže se vyberou ty čtyři vyjma prvního*/
-.recept+.recept {border-top: 1px solid white;}
+/*.ostatní .recept {border-top: 1px solid white;}*/
 
 .hlavní h1,
 .recept h2 {
@@ -87,7 +87,7 @@ body {
 @media screen and (min-width: 480px) {
 	.recept {padding: 20px;}
 
-	.recept+.recept {border-top: none;}
+	/*.ostatní .recept {border-top: none;}*/
 
 	.hlavní h1 {font-size: 36px;}
 	.recept h2 {font-size: 22px;}
@@ -95,15 +95,15 @@ body {
 	.hlavní {min-height: 250px;}
 	.malý {min-height: 150px;}
 
-	.hlavička {
+	.ostatní {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1px;
+/*		gap: 1px;*/
 	}
 
-	.hlavní {flex: 0 0 100%;}
-	.malý {flex: 0 0 calc(50% - 1px);}
-	
+	/*.malý {flex: 0 0 calc(50% - 1px);}
+	.hlavní {border-bottom: 1px solid white;}*/
+	.malý {flex: 0 0 50%;}
 }
 
 @media screen and (min-width: 860px) {
@@ -112,4 +112,8 @@ body {
 
 	.hlavní {min-height: 400px;}
 	.malý {min-height: 200px;}
+
+	.hlavička {display: flex;}
+	.hlavní {flex: 0 0 calc(100% / 3);}
+	.ostatní {flex: 0 0 calc((100% / 3) * 2);}
 }
